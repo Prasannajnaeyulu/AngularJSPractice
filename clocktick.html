@@ -1,0 +1,26 @@
+<html ng-app>
+  <head>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.js"/>
+  </head> 
+  <body>
+    <h2> Clock Tick Angualr JS Example</h2>
+    <div ng-controller="ClockController">
+      <span ng-model="clock">
+        Clock:  {{clock}}
+      </span>
+    </div>
+    <script type="text/javascript">
+      function ClockController($scope)
+      {
+         $scope.clock = new Date();
+         var updateclock = function(){
+            $scope.clock = new Date();
+         };
+
+	setInterval(function(){
+        $scope.$apply(updateclock);}, 1000);
+        updateclock();
+      };
+    </script>
+  </body>
+</html>
